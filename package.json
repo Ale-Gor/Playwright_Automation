@@ -1,0 +1,14 @@
+{
+  "name": "playwright_automation",
+  "version": "1.0.0",
+  "description": "Poznaj z nami automatyzację GUI za pomocą narzędzia Playwright🎭  \r Stwórz swoje pierwsze testy End To End od zupełnych podstaw.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.7"
+  }
+}
