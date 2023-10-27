@@ -31,7 +31,7 @@ test.describe('User login to Demobank', () => {
 
     // Assert
     await expect(page.getByTestId('error-login-id')).toHaveText(
-      expectedErrorMessage
+      expectedErrorMessage,
     );
   });
 
@@ -50,7 +50,7 @@ test.describe('User login to Demobank', () => {
 
     // Assert
     await expect(page.getByTestId('error-login-password')).toHaveText(
-      expectedErrorMessage
+      expectedErrorMessage,
     );
   });
 });

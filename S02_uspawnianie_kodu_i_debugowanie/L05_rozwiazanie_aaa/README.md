@@ -24,7 +24,7 @@ This is a Test Automation project based on `Playwright` and `TypeScript`. The te
 - view report  
   `npx playwright show-report`
 - run Trace Viewer on zip file  
-  `npx playwright show-trace trace.zip`  
+  `npx playwright show-trace trace.zip`
 
 ### Updating Playwright
 
