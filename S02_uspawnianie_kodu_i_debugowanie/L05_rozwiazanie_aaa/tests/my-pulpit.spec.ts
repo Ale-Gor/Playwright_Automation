@@ -11,6 +11,7 @@ test.describe('Pulpit tests', () => {
     const transferAmount = '150';
     const transferTitle = 'pizza';
     const expectedTransferReceiver = 'Chuck Demobankowy';
+    const expectedFinalMessage = `Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`;
 
     // Act
     await page.goto(url);
@@ -27,24 +28,33 @@ test.describe('Pulpit tests', () => {
 
     // Assert
     await expect(page.locator('#show_messages')).toHaveText(
-      `Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`
+      expectedFinalMessage
     );
   });
 
   test('successful mobile top-up', async ({ page }) => {
-    await page.goto('https://demo-bank.vercel.app/');
-    await page.getByTestId('login-input').fill('testerLO');
-    await page.getByTestId('password-input').fill('password');
-    await page.getByTestId('login-button').click();
+    // Arrange
+    const url = 'https://demo-bank.vercel.app/';
+    const userId = 'testerLO';
+    const password = 'password';
+    const receiverId = '500 xxx xxx';
+    const tranferAmmount = '50';
+    const expectedMessage = `Doładowanie wykonane! ${tranferAmmount},00PLN na numer ${receiverId}`;
 
-    await page.locator('#widget_1_topup_receiver').selectOption('500 xxx xxx');
-    await page.locator('#widget_1_topup_amount').fill('50');
+    // Act
+    await page.goto(url);
+    await page.getByTestId('login-input').fill(userId);
+    await page.getByTestId('password-input').fill(password);
+    await page.getByTestId('login-button').click();
+    await page.locator('#widget_1_topup_receiver').selectOption(receiverId);
+    await page.locator('#widget_1_topup_amount').fill(tranferAmmount);
     await page.locator('#uniform-widget_1_topup_agreement span').click();
     await page.getByRole('button', { name: 'doładuj telefon' }).click();
     await page.getByTestId('close-button').click();
 
+    //Assert
     await expect(page.locator('#show_messages')).toHaveText(
-      'Doładowanie wykonane! 50,00PLN na numer 500 xxx xxx'
+      expectedMessage
     );
   });
 });
