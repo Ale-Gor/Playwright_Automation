@@ -58,6 +58,7 @@ This is a Test Automation project based on `Playwright` and `TypeScript`. The te
 - Creating a new variable: Refactor <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> -> Extract to constant in enclosing scope
 
 ### Terminal (console)
+
 - Use more than one terminal: <kbd>+</kbd> button in TERMINAL
 - Cancelling Node process: hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
 - Open file: <kbd>Ctrl</kbd> + mouse click
@@ -118,6 +119,7 @@ This is a Test Automation project based on `Playwright` and `TypeScript`. The te
   test.befoerEach('async ({ page }) => {
     //your code
   });
+  ```
 - running given test: `test.only`
 
 ### Locators
