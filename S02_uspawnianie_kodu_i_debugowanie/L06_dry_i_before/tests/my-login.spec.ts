@@ -1,14 +1,16 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('User login to Demobank', () => {
-  const url = 'https://demo-bank.vercel.app/';
-   
-  test.beforeEach (async ({ page }) => {
-    await page.goto(url); 
-  })
+test.describe('User login to Demobank', () => {  
+  test.beforeEach(async ({ page }) => {
+    // const url = 'https://demo-bank.vercel.app/';
+    // await page.goto(url);
+
+    await page.goto('/')
+
+  });
 
 
-  test('successful login with correct credentials', async ({ page }) => {
+  test.only('successful login with correct credentials', async ({ page }) => {
     // Arrange
     const userId = 'testerLO';
     const userPassword = '10987654';
@@ -29,7 +31,6 @@ test.describe('User login to Demobank', () => {
     const expectedErrorMessage = 'identyfikator ma min. 8 znaków';
 
     //Act
-    await page.goto(url);
     await page.getByTestId('login-input').fill(userId);
     await page.getByTestId('password-input').click();
 
@@ -46,7 +47,6 @@ test.describe('User login to Demobank', () => {
     const errorPasswordMessage = 'hasło ma min. 8 znaków';
 
     //Act
-    await page.goto(url);
     await page.getByTestId('login-input').fill(userId);
     await page.getByTestId('password-input').fill(password);
     await page.getByTestId('password-input').blur();
