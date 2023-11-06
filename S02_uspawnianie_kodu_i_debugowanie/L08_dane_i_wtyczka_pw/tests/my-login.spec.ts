@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
+import { loginData } from '../test-data/login.data';
 
-test.describe('User login to Demobank', () => {  
+test.describe('User login to Demobank', () => {
   test.beforeEach(async ({ page }) => {
     // const url = 'https://demo-bank.vercel.app/';
     // await page.goto(url);
@@ -10,10 +11,10 @@ test.describe('User login to Demobank', () => {
   });
 
 
-  test.only('successful login with correct credentials', async ({ page }) => {
+  test('successful login with correct credentials', async ({ page }) => {
     // Arrange
-    const userId = 'testerLO';
-    const userPassword = '10987654';
+    const userId = loginData.userId;
+    const userPassword = loginData.userPassword;
     const expectedUserName = 'Jan Demobankowy';
 
     //Act
@@ -42,7 +43,7 @@ test.describe('User login to Demobank', () => {
 
   test('unsuccessful login with too short password', async ({ page }) => {
     // Arrange
-    const userId = 'testerLO';
+    const userId = loginData.userId;
     const password = '1234';
     const errorPasswordMessage = 'hasło ma min. 8 znaków';
 
