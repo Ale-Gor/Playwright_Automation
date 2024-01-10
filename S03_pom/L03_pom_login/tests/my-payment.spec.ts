@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/my-login.page';
+
 test.describe('Payment tests', () => {
   test.beforeEach(async ({ page }) => {
     const userId = loginData.userId;

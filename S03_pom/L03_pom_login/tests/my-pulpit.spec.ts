@@ -13,7 +13,7 @@ test.describe('Pulpit tests', () => {
     await loginPage.loginInput.fill(userId);
     await loginPage.passwordInput.fill(userPassword);
     await loginPage.loginButton.click();
-    
+
     // await page.getByTestId('login-input').fill(userId);
     // await page.getByTestId('password-input').fill(userPassword);
     // await page.getByTestId('login-button').click();
